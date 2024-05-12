@@ -1,0 +1,46 @@
+<!--<StackLayout>
+        <Label 
+            x:Name="lblName"
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button x:Name="btnCancel" Text="Cancelar" Clicked="btnCancel_Clicked"></Button>
+    </StackLayout>-->
+    <!--<StackLayout Orientation="Horizontal">
+        <BoxView Color="Aqua" WidthRequest="50"></BoxView>
+        <BoxView Color="Blue" WidthRequest="50"></BoxView>
+        <BoxView Color="Yellow" WidthRequest="50"></BoxView>
+        <BoxView Color="Red" WidthRequest="50"></BoxView>
+    </StackLayout>-->
+    <VerticalStackLayout Spacing="10">
+        <Label Text="teste label" HorizontalOptions="Fill" Background="Gray"></Label>
+        <Label Text="teste label" HorizontalOptions="Start" Background="Gray"></Label>
+        <Label Text="teste label" HorizontalOptions="Center" Background="Gray"></Label>
+        <Label Text="teste label" HorizontalOptions="End" Background="Gray"></Label>
+        <BoxView Color="Aqua" HeightRequest="50" WidthRequest="100" HorizontalOptions="Start"></BoxView>
+        <BoxView Color="Blue" HeightRequest="50" WidthRequest="100" HorizontalOptions="Center"></BoxView>
+        <BoxView Color="Yellow" HeightRequest="50" WidthRequest="100" HorizontalOptions="End"></BoxView>
+        <BoxView Color="Red" HeightRequest="50" WidthRequest="100"></BoxView>
+        <HorizontalStackLayout Spacing="5">
+            <Label Text="Name: " VerticalOptions="Center"></Label>
+            <Entry x:Name="txtName" Placeholder="Name" VerticalOptions="Center"></Entry>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+    <!--<VerticalStackLayout Spacing="10">        
+        <BoxView Color="Aqua" HeightRequest="50" WidthRequest="100" HorizontalOptions="Start"></BoxView>
+        <BoxView Color="Blue" HeightRequest="50" WidthRequest="100" HorizontalOptions="Center"></BoxView>
+        <BoxView Color="Yellow" HeightRequest="50" WidthRequest="100" HorizontalOptions="End"></BoxView>
+        <BoxView Color="Red" HeightRequest="50" WidthRequest="100"></BoxView>
+    </VerticalStackLayout>-->
+    <!--<HorizontalStackLayout Spacing="10">
+        <BoxView Color="Aqua" WidthRequest="50"></BoxView>
+        <BoxView Color="Blue" WidthRequest="50"></BoxView>
+        <BoxView Color="Yellow" WidthRequest="50"></BoxView>
+        <BoxView Color="Red" WidthRequest="50"></BoxView>
+    </HorizontalStackLayout>-->
+    <!--<HorizontalStackLayout Spacing="10">
+        <BoxView Color="Aqua" WidthRequest="50" HeightRequest="100" VerticalOptions="Start"></BoxView>
+        <BoxView Color="Blue" WidthRequest="50" HeightRequest="100" VerticalOptions="Center"></BoxView>
+        <BoxView Color="Yellow" WidthRequest="50" HeightRequest="100" VerticalOptions="End"></BoxView>
+        <BoxView Color="Red" WidthRequest="50" HeightRequest="100"></BoxView>
+    </HorizontalStackLayout>-->
