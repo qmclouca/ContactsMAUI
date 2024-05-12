@@ -4,10 +4,10 @@
     {
         public static List<Contact> contacts = new List<Contact>()
         {
-            new Contact("John Doe", "111-111-1111", "JohnDoe@teste.com"),
-            new Contact("Jane Doe", "222-222-2222", "JaneDoe@teste.com"),
-            new Contact("John Smith", "333-333-3333", "JohnSmith@teste.com"),
-            new Contact("Jane Smith", "444-444-4444", "JaneSmith@teste.com")
+            new Contact("John Doe", "111-111-1111", "JohnDoe@teste.com","endereço1"),
+            new Contact("Jane Doe", "222-222-2222", "JaneDoe@teste.com","endereço2"),
+            new Contact("John Smith", "333-333-3333", "JohnSmith@teste.com","endereço3"),
+            new Contact("Jane Smith", "444-444-4444", "JaneSmith@teste.com","endereço4")
         };
 
         public static void AddContact(Contact contact)

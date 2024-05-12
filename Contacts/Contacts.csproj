@@ -74,4 +74,8 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Anotations\" />
+	</ItemGroup>
+
 </Project>
