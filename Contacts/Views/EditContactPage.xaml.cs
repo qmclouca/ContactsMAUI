@@ -12,10 +12,10 @@ public partial class EditContactPage : ContentPage
 		InitializeComponent();
 	}
 
-  //  private void btnCancel_Clicked(object sender, EventArgs e)
-  //  {
-		//Shell.Current.GoToAsync($"//{nameof(ContactsPage)}");
-  //  }
+    private void btnCancel_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync($"//{nameof(ContactsPage)}");
+    }
 
 
     public string ContactId
@@ -23,8 +23,24 @@ public partial class EditContactPage : ContentPage
         set
         {
             contact = ContactRepository.GetContactById(Guid.Parse(value));
-            //lblName.Text = contact.Name;
-
+            if(contact != null)
+            {
+                entryName.Text = contact.Name;
+                entryPhone.Text = contact.Phone;
+                entryEmail.Text = contact.Email;
+                entryAddress.Text = contact.Address;
+            }
         }
+    }
+
+    private void btnUpdate_Clicked(object sender, EventArgs e)
+    {
+        contact.Name = entryName.Text;
+        contact.Phone = entryPhone.Text;
+        contact.Email = entryEmail.Text;
+        contact.Address = entryAddress.Text;
+
+        ContactRepository.UpdateContact(contact);
+        Shell.Current.GoToAsync($"//{nameof(ContactsPage)}");
     }
 }
