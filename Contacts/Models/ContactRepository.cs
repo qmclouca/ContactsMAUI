@@ -11,7 +11,7 @@
         };
 
         public static void AddContact(Contact contact)
-        {
+        {            
             contacts.Add(contact);
         }
         public static void RemoveContact(Contact contact) { contacts.Remove(contact); }
@@ -38,6 +38,8 @@
         {
             return contacts.Where(c => c.Name.Contains(name));
         }
+
+
 
 
     }

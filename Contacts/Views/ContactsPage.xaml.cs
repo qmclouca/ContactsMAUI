@@ -29,5 +29,10 @@ public partial class ContactsPage : ContentPage
     private void listContacts_ItemTapped(object sender, ItemTappedEventArgs e)
     {
         listContacts.SelectedItem = null;
+    }  
+  
+    private void btnAdd_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(AddContactPage));
     }
 }

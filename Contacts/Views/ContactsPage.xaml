@@ -3,22 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views.ContactsPage"
              Title="Contacts">
-    <ListView 
-        x:Name="listContacts" 
-        BackgroundColor="Transparent"
-        SeparatorColor="LightBlue"
-        SeparatorVisibility="None"
-        RowHeight="60"
-        ItemSelected="listContacts_ItemSelected"
-        ItemTapped="listContacts_ItemTapped">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell 
+    <Grid RowDefinitions="*,50"
+          ColumnDefinitions="*"
+          Padding="5">
+
+        <ListView
+            Grid.Row="0"
+            Grid.Column="0"
+            x:Name="listContacts" 
+            BackgroundColor="Transparent"
+            SeparatorColor="LightBlue"
+            SeparatorVisibility="None"
+            RowHeight="60"
+            ItemSelected="listContacts_ItemSelected"
+            ItemTapped="listContacts_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell 
                     Text="{Binding Path=Name}"
                     Detail="{Binding Path=Email}"></TextCell>
-                <!--<Label Text="{Binding Phone}" FontSize="16" />
+                    <!--<Label Text="{Binding Phone}" FontSize="16" />
                         <Label Text="{Binding Email}" FontSize="16" />-->
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView> 
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Text="Add Contact"
+            Clicked="btnAdd_Clicked"/>
+    </Grid>
 </ContentPage>
