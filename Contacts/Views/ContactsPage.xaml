@@ -20,10 +20,13 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell 
-                    Text="{Binding Path=Name}"
-                    Detail="{Binding Path=Email}"></TextCell>
-                    <!--<Label Text="{Binding Phone}" FontSize="16" />
-                        <Label Text="{Binding Email}" FontSize="16" />-->
+                        Text="{Binding Path=Name}"
+                        Detail="{Binding Path=Email}">
+                        <TextCell.ContextActions>                            
+                            <MenuItem Text="Delete" IsDestructive="True" Clicked="Delete_Clicked" CommandParameter="{Binding .}"></MenuItem>                            
+                        </TextCell.ContextActions>
+                        
+                    </TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
