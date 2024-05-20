@@ -3,12 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views.ContactsPage"
              Title="Contacts">
-    <Grid RowDefinitions="*,50"
+    <Grid RowDefinitions="50,*,50"
           ColumnDefinitions="*"
           Padding="5">
-
-        <ListView
+        <SearchBar
+            x:Name="SearchBar"
             Grid.Row="0"
+            Grid.Column="0"
+            Placeholder="Buscar contato"
+            TextChanged="SearchBar_TextChanged"
+            SearchButtonPressed="SearchBar_SearchButtonPressed">
+        </SearchBar>
+        <ListView
+            Grid.Row="1"
             Grid.Column="0"
             x:Name="listContacts" 
             BackgroundColor="Transparent"
@@ -17,6 +24,7 @@
             RowHeight="60"
             ItemSelected="listContacts_ItemSelected"
             ItemTapped="listContacts_ItemTapped">
+            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell 
@@ -31,7 +39,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="0"
             Text="Add Contact"
             Clicked="btnAdd_Clicked"/>
