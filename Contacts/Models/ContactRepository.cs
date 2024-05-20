@@ -39,8 +39,13 @@
             return contacts.Where(c => c.Name.Contains(name));
         }
 
-
-
-
+        public static List<Contact> SearchContacts(string filter)
+        {
+            var contactsByName = contacts.Where(x => !string.IsNullOrWhiteSpace(x.Name) && x.Name.Contains(filter, StringComparison.OrdinalIgnoreCase)).ToList();
+            var contactsByPhone = contacts.Where(x => !string.IsNullOrWhiteSpace(x.Phone) && x.Phone.Contains(filter, StringComparison.OrdinalIgnoreCase)).ToList();
+            var contactsByEmail = contacts.Where(x => !string.IsNullOrWhiteSpace(x.Email) && x.Email.Contains(filter, StringComparison.OrdinalIgnoreCase)).ToList();
+            var contactsByAddress = contacts.Where(x => !string.IsNullOrWhiteSpace(x.Address) && x.Address.Contains(filter, StringComparison.OrdinalIgnoreCase)).ToList();
+            return contactsByName.Union(contactsByPhone).Union(contactsByEmail).Union(contactsByAddress).ToList();
+        }
     }
 }
