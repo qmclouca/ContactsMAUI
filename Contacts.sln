@@ -5,9 +5,13 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts", "Contacts\Contacts.csproj", "{C5FA331C-DE33-462F-ADA3-3A9F46455C0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.CoreBusiness", "Contacts.CoreBusiness\Contacts.CoreBusiness.csproj", "{8FBF7AB7-1A63-4697-B67D-BC5D119DDE44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts.CoreBusiness", "Contacts.CoreBusiness\Contacts.CoreBusiness.csproj", "{8FBF7AB7-1A63-4697-B67D-BC5D119DDE44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.UseCases", "Contacts.UseCases\Contacts.UseCases.csproj", "{0BC1DE0C-A35B-484C-AF76-76DE9393AD5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts.UseCases", "Contacts.UseCases\Contacts.UseCases.csproj", "{0BC1DE0C-A35B-484C-AF76-76DE9393AD5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{C64D1C37-05B7-499B-9578-4051AA30499D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Plugins.DataStore.InMemory", "Contacts.Plugins.DataStore.InMemory\Contacts.Plugins.DataStore.InMemory.csproj", "{8C73B942-4ADD-40BB-B563-5985C10785BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,9 +33,16 @@ Global
 		{0BC1DE0C-A35B-484C-AF76-76DE9393AD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BC1DE0C-A35B-484C-AF76-76DE9393AD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BC1DE0C-A35B-484C-AF76-76DE9393AD5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C73B942-4ADD-40BB-B563-5985C10785BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C73B942-4ADD-40BB-B563-5985C10785BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C73B942-4ADD-40BB-B563-5985C10785BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C73B942-4ADD-40BB-B563-5985C10785BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C73B942-4ADD-40BB-B563-5985C10785BE} = {C64D1C37-05B7-499B-9578-4051AA30499D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3AF8F444-5FDF-43EF-BB01-72E955D2ACF8}
