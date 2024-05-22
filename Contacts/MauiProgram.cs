@@ -1,4 +1,9 @@
 ﻿using CommunityToolkit.Maui;
+using Contacts.Plugins.DataStore.InMemory;
+using Contacts.UseCases;
+using Contacts.UseCases.Interfaces;
+using Contacts.UseCases.PluginInterfaces;
+using Contacts.Views;
 using Microsoft.Extensions.Logging;
 
 namespace Contacts
@@ -20,6 +25,15 @@ namespace Contacts
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            #region dependency injection registration
+            builder.Services.AddSingleton<IContactRepository, ContactInMemoryRepository>();
+            builder.Services.AddSingleton<IViewContactsUseCase, ViewContactsUseCase>();
+
+            #endregion dependency injection registration
+
+            #region navigation registration (default constructors registration)
+            builder.Services.AddSingleton<ContactsPage>();
+            #endregion navigation registration (default constructors registration)
 
             return builder.Build();
         }

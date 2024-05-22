@@ -39,6 +39,10 @@ namespace Contacts.Plugins.DataStore.InMemory
 
         public Task<List<Contact>> SearchContacts(string filterText)
         {
+            if(string.IsNullOrWhiteSpace(filterText))
+            {
+                return Task.FromResult(_contacts);
+            }
             var contactsByName = _contacts.Where(x => !string.IsNullOrWhiteSpace(x.Name) && x.Name.Contains(filterText, StringComparison.OrdinalIgnoreCase)).ToList();
             var contactsByPhone = _contacts.Where(x => !string.IsNullOrWhiteSpace(x.Phone) && x.Phone.Contains(filterText, StringComparison.OrdinalIgnoreCase)).ToList();
             var contactsByEmail = _contacts.Where(x => !string.IsNullOrWhiteSpace(x.Email) && x.Email.Contains(filterText, StringComparison.OrdinalIgnoreCase)).ToList();

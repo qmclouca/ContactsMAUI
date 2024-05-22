@@ -82,4 +82,10 @@
 	  <Folder Include="Anotations\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Contacts.CoreBusiness\Contacts.CoreBusiness.csproj" />
+	  <ProjectReference Include="..\Contacts.Plugins.DataStore.InMemory\Contacts.Plugins.DataStore.InMemory.csproj" />
+	  <ProjectReference Include="..\Contacts.UseCases\Contacts.UseCases.csproj" />
+	</ItemGroup>
+
 </Project>
