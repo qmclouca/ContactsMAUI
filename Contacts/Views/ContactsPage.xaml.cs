@@ -1,14 +1,18 @@
 using Contacts.Models;
+using Contacts.UseCases.Interfaces;
 using System.Collections.ObjectModel;
 using Contact = Contacts.Models.Contact;
 namespace Contacts.Views;
 
 public partial class ContactsPage : ContentPage
 {
-	public ContactsPage()
+    private readonly IViewContactsUseCase viewContactsUseCase;
+
+    public ContactsPage(IViewContactsUseCase viewContactsUseCase)
 	{
-		InitializeComponent();		
-	}
+		InitializeComponent();
+        this.viewContactsUseCase = viewContactsUseCase;
+    }
 
     protected override void OnAppearing()
     {
@@ -44,20 +48,22 @@ public partial class ContactsPage : ContentPage
         LoadContacts();
     }
 
-    private void LoadContacts()
+    private async void LoadContacts()
     {
-        var contacts = new ObservableCollection<Contact>(ContactRepository.GetAllContacts());
+        var contacts = new ObservableCollection<CoreBusiness.Contact>(await this.viewContactsUseCase.ExecuteAsync(string.Empty));
         listContacts.ItemsSource = contacts;
     }
 
-    private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+    private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
     {
-        var contacts = new ObservableCollection<Contact>(ContactRepository.SearchContacts(((SearchBar)sender!).Text));
+        //var contacts = new ObservableCollection<Contact>(ContactRepository.SearchContacts(((SearchBar)sender!).Text));
+        var contacts = new ObservableCollection<CoreBusiness.Contact>(await this.viewContactsUseCase.ExecuteAsync(((SearchBar)sender!).Text));
         listContacts.ItemsSource = contacts;
     }
-    private void SearchBar_SearchButtonPressed(object sender, EventArgs e)
+    private async void SearchBar_SearchButtonPressed(object sender, EventArgs e)
     {       
-        var contacts = new ObservableCollection<Contact>(ContactRepository.SearchContacts(((SearchBar)sender!).Text));
+        //var contacts = new ObservableCollection<Contact>(ContactRepository.SearchContacts(((SearchBar)sender!).Text));
+        var contacts = new ObservableCollection<CoreBusiness.Contact>(await this.viewContactsUseCase.ExecuteAsync(((SearchBar)sender!).Text));
         listContacts.ItemsSource = contacts;
     }
 }
