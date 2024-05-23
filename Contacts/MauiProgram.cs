@@ -28,11 +28,12 @@ namespace Contacts
             #region dependency injection registration
             builder.Services.AddSingleton<IContactRepository, ContactInMemoryRepository>();
             builder.Services.AddSingleton<IViewContactsUseCase, ViewContactsUseCase>();
-
+            builder.Services.AddSingleton<IViewContactUseCase, ViewContactUseCase>();
             #endregion dependency injection registration
 
             #region navigation registration (default constructors registration)
             builder.Services.AddSingleton<ContactsPage>();
+            builder.Services.AddSingleton<EditContactPage>();
             #endregion navigation registration (default constructors registration)
 
             return builder.Build();

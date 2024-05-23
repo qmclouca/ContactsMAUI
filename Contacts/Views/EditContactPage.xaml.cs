@@ -1,4 +1,5 @@
 using Contacts.Models;
+using Contacts.UseCases.Interfaces;
 using Contact = Contacts.Models.Contact;
 
 namespace Contacts.Views;
@@ -6,10 +7,14 @@ namespace Contacts.Views;
 [QueryProperty(nameof(ContactId), "Id")]
 public partial class EditContactPage : ContentPage
 {
-    private Contact contact;
-	public EditContactPage()
+    private CoreBusiness.Contact contact;
+
+    private readonly IViewContactUseCase _viewContactUseCase;
+
+    public EditContactPage(IViewContactUseCase viewContactUseCase)
 	{
 		InitializeComponent();
+        _viewContactUseCase = viewContactUseCase;
 	}
 
     private void btnCancel_Clicked(object sender, EventArgs e)
@@ -21,8 +26,8 @@ public partial class EditContactPage : ContentPage
     public string ContactId
     {
         set
-        {
-            contact = ContactRepository.GetContactById(Guid.Parse(value));
+        {            
+            _viewContactUseCase.ExecuteAsync(Guid.Parse(value)).GetAwaiter().GetResult();
             if(contact != null)
             {
                 contactCtrl.Name = contact.Name;
@@ -41,7 +46,7 @@ public partial class EditContactPage : ContentPage
         contact.Email = contactCtrl.Email;
         contact.Address = contactCtrl.Address;
 
-        ContactRepository.UpdateContact(contact);
+        //ContactRepository.UpdateContact(contact);
         Shell.Current.GoToAsync($"//{nameof(ContactsPage)}");
     }
 
