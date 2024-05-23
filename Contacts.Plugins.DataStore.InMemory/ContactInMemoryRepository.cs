@@ -31,6 +31,12 @@ namespace Contacts.Plugins.DataStore.InMemory
             return Task.FromResult(_contacts);
         }
 
+        public Task<Contact> GetContactByIdAsync(Guid contactId)
+        {
+            var contact = _contacts.FirstOrDefault(c => c.Id.Equals(contactId));
+            return contact != null ? Task.FromResult(contact) : Task.FromResult(new Contact());
+        }
+
         public Task RemoveContact(Contact contact)
         {
             _contacts.Remove(contact);
