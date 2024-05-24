@@ -1,5 +1,6 @@
 using Contacts.Models;
 using Contacts.UseCases.Interfaces;
+using Contacts.UseCases.PluginInterfaces;
 using Contact = Contacts.Models.Contact;
 
 namespace Contacts.Views;
@@ -10,11 +11,13 @@ public partial class EditContactPage : ContentPage
     private CoreBusiness.Contact contact;
 
     private readonly IViewContactUseCase _viewContactUseCase;
+    private readonly IEditContactUseCase _editContactUseCase;
 
-    public EditContactPage(IViewContactUseCase viewContactUseCase)
+    public EditContactPage(IViewContactUseCase viewContactUseCase, IEditContactUseCase editContactUseCase)
 	{
 		InitializeComponent();
         _viewContactUseCase = viewContactUseCase;
+        _editContactUseCase = editContactUseCase;
 	}
 
     private void btnCancel_Clicked(object sender, EventArgs e)
@@ -38,7 +41,7 @@ public partial class EditContactPage : ContentPage
         }
     }
 
-    private void btnUpdate_Clicked(object sender, EventArgs e)
+    private async void btnUpdate_Clicked(object sender, EventArgs e)
     {
        
         contact.Name = contactCtrl.Name;
@@ -46,8 +49,8 @@ public partial class EditContactPage : ContentPage
         contact.Email = contactCtrl.Email;
         contact.Address = contactCtrl.Address;
 
-        //ContactRepository.UpdateContact(contact);
-        Shell.Current.GoToAsync($"//{nameof(ContactsPage)}");
+        await _editContactUseCase.ExecuteAsync(contact.Id);        
+        await Shell.Current.GoToAsync($"//{nameof(ContactsPage)}");
     }
 
     private void contactCtrl_OnError(object sender, string e)
