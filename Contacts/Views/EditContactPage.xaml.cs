@@ -8,7 +8,7 @@ namespace Contacts.Views;
 [QueryProperty(nameof(ContactId), "Id")]
 public partial class EditContactPage : ContentPage
 {
-    private CoreBusiness.Contact contact;
+    private CoreBusiness.Contact? contact;
 
     private readonly IViewContactUseCase _viewContactUseCase;
     private readonly IEditContactUseCase _editContactUseCase;
@@ -30,7 +30,7 @@ public partial class EditContactPage : ContentPage
     {
         set
         {            
-            _viewContactUseCase.ExecuteAsync(Guid.Parse(value)).GetAwaiter().GetResult();
+            contact = _viewContactUseCase.ExecuteAsync(Guid.Parse(value)).GetAwaiter().GetResult();
             if(contact != null)
             {
                 contactCtrl.Name = contact.Name;
