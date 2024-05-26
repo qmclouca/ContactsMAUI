@@ -1,6 +1,5 @@
 using Contacts.Models;
 using Contacts.UseCases.Interfaces;
-using Contacts.UseCases.PluginInterfaces;
 using Contact = Contacts.Models.Contact;
 
 namespace Contacts.Views;

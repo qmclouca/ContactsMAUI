@@ -30,11 +30,13 @@ namespace Contacts
             builder.Services.AddSingleton<IViewContactsUseCase, ViewContactsUseCase>();
             builder.Services.AddSingleton<IViewContactUseCase, ViewContactUseCase>();
             builder.Services.AddTransient<IEditContactUseCase, EditContactUseCase>();
+            builder.Services.AddTransient<IAddContactUseCase, AddContactUseCase>();
             #endregion dependency injection registration
 
             #region navigation registration (default constructors registration)
             builder.Services.AddSingleton<ContactsPage>();
             builder.Services.AddSingleton<EditContactPage>();
+            builder.Services.AddSingleton<AddContactPage>();
             #endregion navigation registration (default constructors registration)
 
             return builder.Build();
