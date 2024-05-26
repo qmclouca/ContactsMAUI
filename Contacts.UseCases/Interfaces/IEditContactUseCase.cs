@@ -1,4 +1,4 @@
-﻿namespace Contacts.UseCases.PluginInterfaces
+﻿namespace Contacts.UseCases.Interfaces
 {
     public interface IEditContactUseCase
     {

@@ -10,5 +10,6 @@ namespace Contacts.UseCases.PluginInterfaces
         Task RemoveContact(Contact contact);
         Task<Contact> GetContactByIdAsync(Guid contactId);
         Task UpdateContactAsync(Contact contact);
+        Task AddContactAsync(Contact contact);
     }
 }

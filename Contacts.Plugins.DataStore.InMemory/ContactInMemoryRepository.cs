@@ -26,6 +26,13 @@ namespace Contacts.Plugins.DataStore.InMemory
             return Task.CompletedTask;
         }
 
+        public Task AddContactAsync(Contact contact)
+        {
+            if (_contacts == null) _contacts = new List<Contact>();
+            _contacts.Add(contact);
+            return Task.CompletedTask;            
+        }
+
         public Task<List<Contact>> GetAllContacts()
         {
             return Task.FromResult(_contacts);
