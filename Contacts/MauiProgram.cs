@@ -31,6 +31,7 @@ namespace Contacts
             builder.Services.AddSingleton<IViewContactUseCase, ViewContactUseCase>();
             builder.Services.AddTransient<IEditContactUseCase, EditContactUseCase>();
             builder.Services.AddTransient<IAddContactUseCase, AddContactUseCase>();
+            builder.Services.AddTransient<IDeleteContactUseCase, DeleteContactUseCase>();
             #endregion dependency injection registration
 
             #region navigation registration (default constructors registration)
