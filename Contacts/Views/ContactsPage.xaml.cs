@@ -65,4 +65,9 @@ public partial class ContactsPage : ContentPage
         var contacts = new ObservableCollection<Contact>(await _viewContactsUseCase.ExecuteAsync(((SearchBar)sender!).Text));
         listContacts.ItemsSource = contacts;
     }
+
+    private void btnTest_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(TestPage1));
+    }
 }

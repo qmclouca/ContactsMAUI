@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views.ContactsPage"
              Title="Contacts">
-    <Grid RowDefinitions="50,*,50"
+    <Grid RowDefinitions="50,*,50, 50"
+          RowSpacing="5"
           ColumnDefinitions="*"
           Padding="5">
         <SearchBar
@@ -42,5 +43,11 @@
             Grid.Column="0"
             Text="Add Contact"
             Clicked="btnAdd_Clicked"/>
+        <Button
+    Grid.Row="3"
+    Grid.Column="0"
+            x:Name="btnTest"
+    Text="Teste"
+    Clicked="btnTest_Clicked"/>
     </Grid>
 </ContentPage>
