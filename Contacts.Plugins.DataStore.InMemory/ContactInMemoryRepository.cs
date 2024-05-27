@@ -50,6 +50,19 @@ namespace Contacts.Plugins.DataStore.InMemory
             return Task.CompletedTask;
         }
 
+        public Task RemoveContactAsync(Contact contact)
+        {
+            if (contact != null && contact.Id != Guid.Empty)
+            {
+                _contacts.Remove(contact);
+                return Task.CompletedTask;
+            }
+            else
+            {
+                return Task.FromException(new ArgumentException("Contact is null or empty"));
+            }            
+        }
+
         public Task<List<Contact>> SearchContacts(string filterText)
         {
             if(string.IsNullOrWhiteSpace(filterText))
