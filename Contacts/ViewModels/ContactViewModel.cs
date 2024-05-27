@@ -14,6 +14,10 @@ namespace Contacts.ViewModels
             Contact = ContactRepository.GetAllContacts().First();
         }        
 
+        public ContactViewModel() {
+            Contact = ContactRepository.GetAllContacts().First();
+        }
+
         [RelayCommand]
         public void SaveContact()
         {
