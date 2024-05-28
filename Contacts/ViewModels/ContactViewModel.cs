@@ -7,16 +7,29 @@ namespace Contacts.ViewModels
 {
     public partial class ContactViewModel : ObservableObject
     {
-        public Contact Contact { get; set; }
+        private Contact contact;
 
-        public ContactViewModel(Contact contact)
+        //implementation of TwoWay binding using CommunityToolkit.Mvvm.ComponentModel
+        public Contact Contact
         {
-            Contact = ContactRepository.GetAllContacts().First();
-        }        
+            get => contact;
+            set
+            {
+                SetProperty(ref contact, value);
+            }
+        }
 
         public ContactViewModel() {
-            Contact = ContactRepository.GetAllContacts().First();
+            Contact = new Contact();
         }
+
+        public void LoadContact(Guid id)
+        {   
+            //TODO: Tirar essa parte de teste
+            IEnumerable<Contact> contacts = ContactRepository.GetAllContacts();
+            Contact = contacts.First();
+            //Contact = ContactRepository.GetContactById(id);
+        }   
 
         [RelayCommand]
         public void SaveContact()

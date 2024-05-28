@@ -11,4 +11,10 @@ public partial class TestPage1 : ContentPage
 		viewModel = new ContactViewModel();
 		this.BindingContext = viewModel;
 	}
+
+	protected override void OnAppearing()
+	{
+        base.OnAppearing();
+        viewModel.LoadContact(Guid.NewGuid());
+    }
 }
