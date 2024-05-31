@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Contacts.ViewModels"
+             xmlns:m="clr-namespace:Contacts.CoreBusiness;assembly=Contacts.CoreBusiness"
+             x:DataType="vm:ContactsViewModel"             
+             x:Class="Contacts.Views_Mvvm.Contacts_Mvvm_Page"
+             Title="Contacts_Mvvm_Page">
+    <Grid RowDefinitions="50,*,50"
+          RowSpacing="5"
+          ColumnDefinitions="*"
+          Padding="5">
+        <SearchBar
+            x:Name="SearchBar"
+            Grid.Row="0"
+            Grid.Column="0"
+            Placeholder="Buscar contato"
+            TextChanged="SearchBar_TextChanged"
+            SearchButtonPressed="SearchBar_SearchButtonPressed"/>
+        <CollectionView
+            ItemsSource="{Binding Contacts}"
+            Grid.Row="1"
+            Grid.Column="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:Contact">
+                    <StackLayout>
+                        <Frame Margin="0,5,0,5">
+                            <StackLayout Orientation="Vertical" Spacing="5">
+                                <Label Text="{Binding Name}" FontSize="Title" />
+                                <Label Text="{Binding Email}" FontSize="Subtitle" />                                
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Text="Add Contact"/>        
+    </Grid>
+</ContentPage>
