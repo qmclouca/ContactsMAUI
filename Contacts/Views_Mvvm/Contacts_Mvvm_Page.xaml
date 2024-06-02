@@ -18,6 +18,7 @@
             TextChanged="SearchBar_TextChanged"
             SearchButtonPressed="SearchBar_SearchButtonPressed"/>
         <CollectionView
+            x:Name="ContactsCollection"
             ItemsSource="{Binding Contacts}"
             Grid.Row="1"
             Grid.Column="0">
@@ -31,6 +32,8 @@
                                         Text="Apagar"
                                         IsDestructive="True"
                                         BackgroundColor="Red"
+                                        Command="{Binding BindingContext.DeleteContactCommand, Source={x:Reference ContactsCollection}}"
+                                        CommandParameter="{Binding Id}"
                                         />
                                     <SwipeItem
                                         Text="Editar"
