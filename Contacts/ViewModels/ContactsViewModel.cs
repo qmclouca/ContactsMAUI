@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Contacts.UseCases.Interfaces;
+using Contacts.Views_Mvvm;
 using Contact = Contacts.CoreBusiness.Contact;
 
 namespace Contacts.ViewModels
@@ -15,13 +16,18 @@ namespace Contacts.ViewModels
     {
         private readonly IViewContactsUseCase _viewContactsUseCase;
         private readonly IDeleteContactUseCase _deleteContactUseCase;
+        private readonly IEditContactUseCase _editContactUseCase;
 
         public ObservableCollection<Contact> Contacts { get; set; }
-        public ContactsViewModel(IViewContactsUseCase viewContactsUseCase, IDeleteContactUseCase deleteContactUseCase)
+        public ContactsViewModel(
+            IViewContactsUseCase viewContactsUseCase, 
+            IDeleteContactUseCase deleteContactUseCase,
+            IEditContactUseCase editContactUseCase)
         {
             _viewContactsUseCase = viewContactsUseCase;
             _deleteContactUseCase = deleteContactUseCase;
-            this.Contacts = new ObservableCollection<Contact>();
+            _editContactUseCase = editContactUseCase; 
+            this.Contacts = new ObservableCollection<Contact>();            
         }
 
         public async Task LoadContactsAsync()
@@ -46,6 +52,14 @@ namespace Contacts.ViewModels
             if (contactToDelete != null) await _deleteContactUseCase.ExecuteAsync(contactToDelete);
             else throw new Exception("Contact not found");
             await LoadContactsAsync();
+        }
+
+        [RelayCommand]
+        public async Task EditContact(Guid contactId)
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditContactPage_Mvvm_Page)}?id={contactId}");
+            //await _editContactUseCase.ExecuteAsync(contactId);
+            //await LoadContactsAsync();
         }
     }
 }

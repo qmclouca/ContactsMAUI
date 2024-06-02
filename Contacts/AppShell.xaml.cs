@@ -14,6 +14,7 @@ namespace Contacts
             Routing.RegisterRoute(nameof(AddContactPage), typeof(AddContactPage));
             Routing.RegisterRoute(nameof(TestPage1), typeof(TestPage1));
             Routing.RegisterRoute(nameof(Contacts_Mvvm_Page), typeof(Contacts_Mvvm_Page));
+            Routing.RegisterRoute(nameof(EditContactPage_Mvvm_Page), typeof(EditContactPage_Mvvm_Page));
         }
     }
 }
