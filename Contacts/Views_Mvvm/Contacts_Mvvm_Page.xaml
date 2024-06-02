@@ -24,12 +24,31 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:Contact">
                     <StackLayout>
-                        <Frame Margin="0,5,0,5">
-                            <StackLayout Orientation="Vertical" Spacing="5">
-                                <Label Text="{Binding Name}" FontSize="Title" />
-                                <Label Text="{Binding Email}" FontSize="Subtitle" />                                
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem
+                                        Text="Apagar"
+                                        IsDestructive="True"
+                                        BackgroundColor="Red"
+                                        />
+                                    <SwipeItem
+                                        Text="Editar"
+                                        IsDestructive="False"
+                                        BackgroundColor="Green"                                        
+                                        />
+                                </SwipeItems>
+
+                            </SwipeView.RightItems>
+                            <StackLayout>
+                                <Frame Margin="0,5,0,5">
+                                    <StackLayout Orientation="Vertical" Spacing="5">
+                                        <Label Text="{Binding Name}" FontSize="Title" />
+                                        <Label Text="{Binding Email}" FontSize="Subtitle" />
+                                    </StackLayout>
+                                </Frame>
                             </StackLayout>
-                        </Frame>
+                        </SwipeView>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
@@ -37,6 +56,6 @@
         <Button
             Grid.Row="2"
             Grid.Column="0"
-            Text="Add Contact"/>        
+            Text="Add Contact"/>
     </Grid>
 </ContentPage>
