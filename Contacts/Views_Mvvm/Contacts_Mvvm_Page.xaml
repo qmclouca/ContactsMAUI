@@ -38,7 +38,9 @@
                                     <SwipeItem
                                         Text="Editar"
                                         IsDestructive="False"
-                                        BackgroundColor="Green"                                        
+                                        BackgroundColor="Green"
+                                        Command="{Binding BindingContext.EditContactCommand, Source={x:Reference ContactsCollection}}"
+                                        CommandParameter="{Binding Id}"
                                         />
                                 </SwipeItems>
 

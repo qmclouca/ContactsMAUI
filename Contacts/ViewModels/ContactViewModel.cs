@@ -1,15 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Contacts.Models;
-using Contact = Contacts.Models.Contact;
+using Contacts.UseCases.Interfaces;
+using Contact = Contacts.CoreBusiness.Contact;
 
 namespace Contacts.ViewModels
 {
     public partial class ContactViewModel : ObservableObject
     {
-        private Contact contact;
-
-        //implementation of TwoWay binding using CommunityToolkit.Mvvm.ComponentModel
+        private Contact? contact;
+        private readonly IViewContactUseCase _viewContactUseCase;
+        
         public Contact Contact
         {
             get => contact;
@@ -19,22 +20,20 @@ namespace Contacts.ViewModels
             }
         }
 
-        public ContactViewModel() {
+        public ContactViewModel(IViewContactUseCase viewContactUseCase) {
             Contact = new Contact();
+            _viewContactUseCase = viewContactUseCase;            
         }
 
-        public void LoadContact(Guid id)
-        {   
-            //TODO: Tirar essa parte de teste
-            IEnumerable<Contact> contacts = ContactRepository.GetAllContacts();
-            Contact = contacts.First();
-            //Contact = ContactRepository.GetContactById(id);
+        public async Task LoadContact(Guid id)
+        {               
+            Contact = await _viewContactUseCase.ExecuteAsync(id);            
         }   
 
-        [RelayCommand]
-        public void SaveContact()
-        {
-            ContactRepository.AddContact(Contact);
-        }
+        //[RelayCommand]
+        //public void SaveContact()
+        //{
+        //    ContactRepository.AddContact(Contact);
+        //}
     }
 }
