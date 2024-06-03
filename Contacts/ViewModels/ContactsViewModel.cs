@@ -19,6 +19,7 @@ namespace Contacts.ViewModels
         private readonly IEditContactUseCase _editContactUseCase;
 
         public ObservableCollection<Contact> Contacts { get; set; }
+        public Contact SelectedContact { get; set; }
         public ContactsViewModel(
             IViewContactsUseCase viewContactsUseCase, 
             IDeleteContactUseCase deleteContactUseCase,
@@ -60,6 +61,16 @@ namespace Contacts.ViewModels
             await Shell.Current.GoToAsync($"{nameof(EditContactPage_Mvvm_Page)}?id={contactId}");
             //await _editContactUseCase.ExecuteAsync(contactId);
             //await LoadContactsAsync();
+        }
+
+        [RelayCommand]
+        public async Task GetContact(Guid id)
+        {
+            await LoadContactsAsync();
+            var actualContact = this.Contacts.FirstOrDefault(x => x.Id.Equals(id));
+            if (actualContact != null) this.SelectedContact = actualContact;
+            else throw new Exception("Contact not found");
+            await LoadContactsAsync();
         }
     }
 }

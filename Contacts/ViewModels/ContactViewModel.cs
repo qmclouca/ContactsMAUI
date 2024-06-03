@@ -8,7 +8,7 @@ namespace Contacts.ViewModels
 {
     public partial class ContactViewModel : ObservableObject
     {
-        private Contact? contact;
+        private Contact contact;
         private readonly IViewContactUseCase _viewContactUseCase;
         
         public Contact Contact

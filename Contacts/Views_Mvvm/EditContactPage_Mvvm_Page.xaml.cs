@@ -10,7 +10,7 @@ public partial class EditContactPage_Mvvm_Page : ContentPage
 	{
 		InitializeComponent();
         _contactViewModel = contactViewModel;
-        this.BindingContext = contactViewModel;
+        this.BindingContext = _contactViewModel;
 	}
 
     public string ContactId
