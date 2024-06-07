@@ -3,10 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views_Mvvm.EditContactPage_Mvvm_Page"
              xmlns:controls="clr-namespace:Contacts.Views_Mvvm.Controls"
-             Title="Edit Contact">
+             Title="Editar Contato">
     <controls:ContactControl_MVVM
-        BindingContext="{Binding .}">
-        
+        BindingContext="{Binding .}">        
     </controls:ContactControl_MVVM>
    
 </ContentPage>
