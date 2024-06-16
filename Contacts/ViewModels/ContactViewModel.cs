@@ -40,6 +40,14 @@ namespace Contacts.ViewModels
             //await LoadContactsAsync();
         }
 
+        [RelayCommand]
+        public async Task GotoEditContact(Guid contactId)
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditContactPage_Mvvm_Page)}?id={contactId}");
+            //await _editContactUseCase.ExecuteAsync(contactId);
+            //await LoadContactsAsync();
+        }
+
         //[RelayCommand]
         //public void SaveContact()
         //{

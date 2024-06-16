@@ -32,14 +32,14 @@
                                         Text="Apagar"
                                         IsDestructive="True"
                                         BackgroundColor="Red"
-                                        Command="{Binding BindingContext.DeleteContactCommand, Source={x:Reference ContactsCollection}}"
+                                        Command="{Binding Source={x:Reference ContactsCollection}, Path=BindingContext.DeleteContactCommand}"
                                         CommandParameter="{Binding Id}"
                                         />
                                     <SwipeItem
                                         Text="Editar"
                                         IsDestructive="False"
                                         BackgroundColor="Green"
-                                        Command="{Binding BindingContext.EditContactCommand, Source={x:Reference ContactsCollection}}"
+                                        Command="{Binding Source={x:Reference ContactsCollection}, Path=BindingContext.GotoEditContactCommand}"
                                         CommandParameter="{Binding Id}"
                                         />
                                 </SwipeItems>
