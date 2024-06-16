@@ -54,7 +54,7 @@
                 <Entry Placeholder="Addresss" VerticalOptions="Center" Text="{Binding Contact.Address}"></Entry>
             </HorizontalStackLayout>
         </Frame>
-        <Button x:Name="btnSave" Text="Salvar"></Button>
-        <Button x:Name="btnCancel" Text="Cancelar"></Button>
+        <Button x:Name="btnSave" Text="Salvar" Command="{Binding EditContactCommand}"></Button>
+        <Button x:Name="btnCancel" Text="Cancelar" Command="{Binding BackToContactsCommand}"></Button>
     </VerticalStackLayout>
 </ContentView>

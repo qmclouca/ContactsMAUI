@@ -53,9 +53,7 @@ namespace Contacts.ViewModels
         [RelayCommand]
         public async Task GotoEditContact(Guid contactId)
         {
-            await Shell.Current.GoToAsync($"{nameof(EditContactPage_Mvvm_Page)}?Id={contactId}");
-            //await _editContactUseCase.ExecuteAsync(contactId);
-            //await LoadContactsAsync();
+            await Shell.Current.GoToAsync($"{nameof(EditContactPage_Mvvm_Page)}?Id={contactId}");           
         }
 
         [RelayCommand]
