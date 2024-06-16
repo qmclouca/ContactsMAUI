@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Contacts.UseCases.Interfaces;
 using Contacts.Views_Mvvm;
+using System.Collections.ObjectModel;
 using Contact = Contacts.CoreBusiness.Contact;
 
 namespace Contacts.ViewModels
@@ -56,9 +51,9 @@ namespace Contacts.ViewModels
         }
 
         [RelayCommand]
-        public async Task EditContact(Guid contactId)
+        public async Task GotoEditContact(Guid contactId)
         {
-            await Shell.Current.GoToAsync($"{nameof(EditContactPage_Mvvm_Page)}?id={contactId}");
+            await Shell.Current.GoToAsync($"{nameof(EditContactPage_Mvvm_Page)}?Id={contactId}");
             //await _editContactUseCase.ExecuteAsync(contactId);
             //await LoadContactsAsync();
         }
