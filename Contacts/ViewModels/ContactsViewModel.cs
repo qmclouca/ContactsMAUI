@@ -65,5 +65,11 @@ namespace Contacts.ViewModels
             else throw new Exception("Contact not found");
             await LoadContactsAsync();
         }
+
+        [RelayCommand]
+        public async Task GotoAddContact()
+        {
+            await Shell.Current.GoToAsync(nameof(AddContact_Mvvm_Page));
+        }
     }
 }

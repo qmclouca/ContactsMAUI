@@ -61,6 +61,7 @@
         <Button
             Grid.Row="2"
             Grid.Column="0"
-            Text="Add Contact"/>
+            Text="Adicionar Contato"
+            Command="{Binding GotoAddContactCommand}"/>
     </Grid>
 </ContentPage>

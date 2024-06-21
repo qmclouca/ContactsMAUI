@@ -12,6 +12,7 @@ namespace Contacts.ViewModels
         private Contact contact;
         private readonly IViewContactUseCase _viewContactUseCase;
         private readonly IEditContactUseCase _editContactUseCase;
+        private readonly IAddContactUseCase _addContactUseCase;
 
         public Contact Contact
         {
@@ -22,11 +23,15 @@ namespace Contacts.ViewModels
             }
         }
 
-        public ContactViewModel(IViewContactUseCase viewContactUseCase, IEditContactUseCase editContactUseCase)
+        public ContactViewModel(
+            IViewContactUseCase viewContactUseCase, 
+            IEditContactUseCase editContactUseCase,
+            IAddContactUseCase addContactUseCase)
         {
             Contact = new Contact();
             _viewContactUseCase = viewContactUseCase;
             _editContactUseCase = editContactUseCase;
+            _addContactUseCase = addContactUseCase;
         }
 
         public async Task LoadContact(Guid id)
@@ -45,6 +50,13 @@ namespace Contacts.ViewModels
         {
             await _editContactUseCase.ExecuteAsync(Contact.Id);           
             await Shell.Current.GoToAsync($"{nameof(Contacts_Mvvm_Page)}");            
+        }
+
+        [RelayCommand]
+        public async Task AddContact()
+        {
+            await _addContactUseCase.ExecuteAsync(this.contact);
+            await Shell.Current.GoToAsync($"{nameof(Contacts_Mvvm_Page)}");
         }
 
         [RelayCommand]
