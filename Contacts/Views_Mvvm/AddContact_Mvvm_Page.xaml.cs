@@ -12,8 +12,10 @@ public partial class AddContact_Mvvm_Page : ContentPage
         this.BindingContext = _contactViewModel;
     }
 
-    private async void SaveContact_Clicked(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        //await _contactViewModel.AddContact();
+        base.OnAppearing();
+        _contactViewModel.Contact = new CoreBusiness.Contact();
+
     }
 }
