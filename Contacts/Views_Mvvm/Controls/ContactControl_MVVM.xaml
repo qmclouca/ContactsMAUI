@@ -12,9 +12,10 @@
                 <Entry Placeholder="Name" VerticalOptions="Center" Text="{Binding Contact.Name}">
                     <Entry.Behaviors>
                         <toolkit:TextValidationBehavior
-                       x:Name="nameValidator"                            
-                       Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                       MinimumLength="1"
+                            x:Name="nameValidator"                            
+                            Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                            MinimumLength="1"
+                            IsValid="{Binding IsNameProvided}"                            
                        />
                     </Entry.Behaviors>
                 </Entry>
@@ -29,14 +30,16 @@
                        x:Name="emailValidator"
                        Flags="ValidateOnAttaching,ValidateOnValueChanged">
                             <toolkit:TextValidationBehavior                            
-                           Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                           MinimumLength="1"
-                           toolkit:MultiValidationBehavior.Error="Email is required."
-                       />
+                                Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                MinimumLength="1"
+                                toolkit:MultiValidationBehavior.Error="Email is required."
+                                IsValid="{Binding IsEmailProvided}"
+                            />
                             <toolkit:EmailValidationBehavior
-                           Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                           toolkit:MultiValidationBehavior.Error="Email format is invalid."
-                       />
+                                Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                toolkit:MultiValidationBehavior.Error="Email format is invalid."
+                                IsValid="{Binding IsEmailFormatValid}"
+                            />
                         </toolkit:MultiValidationBehavior>
                     </Entry.Behaviors>
                 </Entry>
