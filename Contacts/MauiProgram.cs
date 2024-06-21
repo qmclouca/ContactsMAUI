@@ -41,6 +41,7 @@ namespace Contacts
             builder.Services.AddSingleton<ContactViewModel>();
             builder.Services.AddSingleton<Contacts_Mvvm_Page>();
             builder.Services.AddSingleton<EditContactPage_Mvvm_Page>();
+            builder.Services.AddSingleton<AddContact_Mvvm_Page>();
             builder.Services.AddSingleton<ContactsPage>();
             builder.Services.AddSingleton<EditContactPage>();
             builder.Services.AddSingleton<AddContactPage>();
