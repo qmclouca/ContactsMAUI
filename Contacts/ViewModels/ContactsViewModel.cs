@@ -44,7 +44,7 @@ namespace Contacts.ViewModels
             await LoadContactsAsync(filterText);
         }
 
-        public async Task LoadContactsAsync(string filterText = null)
+        public async Task LoadContactsAsync(string? filterText = null)
         {
             this.Contacts.Clear();
 
