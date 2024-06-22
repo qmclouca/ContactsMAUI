@@ -14,6 +14,19 @@ namespace Contacts.ViewModels
         private readonly IEditContactUseCase _editContactUseCase;
 
         public ObservableCollection<Contact> Contacts { get; set; }
+
+        private string filterText;
+
+        public string FilterText
+        {
+            get { return filterText; }
+            set 
+            { 
+                filterText = value;
+                LoadContacts(filterText);
+            }
+        }                      
+
         public Contact SelectedContact { get; set; }
         public ContactsViewModel(
             IViewContactsUseCase viewContactsUseCase, 
@@ -26,11 +39,16 @@ namespace Contacts.ViewModels
             this.Contacts = new ObservableCollection<Contact>();            
         }
 
-        public async Task LoadContactsAsync()
+        private async void LoadContacts(string filterText)
+        {
+            await LoadContactsAsync(filterText);
+        }
+
+        public async Task LoadContactsAsync(string filterText = null)
         {
             this.Contacts.Clear();
 
-            var contacts = await _viewContactsUseCase.ExecuteAsync(null);
+            var contacts = await _viewContactsUseCase.ExecuteAsync(filterText);
             if (contacts != null && contacts.Count > 0)
             {
                 foreach (var contact in contacts)
