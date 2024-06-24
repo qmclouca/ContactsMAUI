@@ -1,4 +1,4 @@
-﻿namespace Contacts
+﻿namespace Contacts.Plugins.DataStore.SqlLite
 {
     public class Constants
     {
