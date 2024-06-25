@@ -5,8 +5,8 @@ namespace Contacts.Views_Mvvm;
 [QueryProperty(nameof(ContactId), "Id")]
 public partial class EditContactPage_Mvvm_Page : ContentPage
 {   
-    private readonly ContactViewModel _contactViewModel;
-    public EditContactPage_Mvvm_Page(ContactViewModel contactViewModel)
+    private readonly ContactsViewModel _contactViewModel;
+    public EditContactPage_Mvvm_Page(ContactsViewModel contactViewModel)
 	{
 		InitializeComponent();
         _contactViewModel = contactViewModel;
@@ -27,6 +27,6 @@ public partial class EditContactPage_Mvvm_Page : ContentPage
 
     private async void LoadContact(Guid contactId)
     {
-        await _contactViewModel.LoadContact(contactId);
+        await _contactViewModel.GetContact(contactId);
     }
 }

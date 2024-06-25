@@ -1,11 +1,9 @@
 ﻿using CommunityToolkit.Maui;
-using Contacts.Plugins.DataStore.InMemory;
 using Contacts.Plugins.DataStore.SqlLite;
 using Contacts.UseCases;
 using Contacts.UseCases.Interfaces;
 using Contacts.UseCases.PluginInterfaces;
 using Contacts.ViewModels;
-using Contacts.Views;
 using Contacts.Views_Mvvm;
 using Microsoft.Extensions.Logging;
 
@@ -40,13 +38,9 @@ namespace Contacts
 
             #region navigation registration (default constructors registration)
             builder.Services.AddSingleton<ContactsViewModel>();
-            builder.Services.AddSingleton<ContactViewModel>();
             builder.Services.AddSingleton<Contacts_Mvvm_Page>();
             builder.Services.AddSingleton<EditContactPage_Mvvm_Page>();
             builder.Services.AddSingleton<AddContact_Mvvm_Page>();
-            builder.Services.AddSingleton<ContactsPage>();
-            builder.Services.AddSingleton<EditContactPage>();
-            builder.Services.AddSingleton<AddContactPage>();
             #endregion navigation registration (default constructors registration)
 
             return builder.Build();

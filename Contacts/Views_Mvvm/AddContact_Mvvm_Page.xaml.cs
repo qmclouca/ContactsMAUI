@@ -1,11 +1,12 @@
 using Contacts.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace Contacts.Views_Mvvm;
 
 public partial class AddContact_Mvvm_Page : ContentPage
 {
-	private readonly ContactViewModel _contactViewModel;
-    public AddContact_Mvvm_Page(ContactViewModel contactViewModel)
+	private readonly ContactsViewModel _contactViewModel;
+    public AddContact_Mvvm_Page(ContactsViewModel contactViewModel)
 	{
 		InitializeComponent();
         _contactViewModel = contactViewModel;
@@ -15,7 +16,6 @@ public partial class AddContact_Mvvm_Page : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        _contactViewModel.Contact = new CoreBusiness.Contact();
-
+        _contactViewModel.Contacts = new ObservableCollection<CoreBusiness.Contact>();
     }
 }

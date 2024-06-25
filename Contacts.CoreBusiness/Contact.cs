@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Contacts.CoreBusiness
@@ -27,5 +28,10 @@ namespace Contacts.CoreBusiness
         [Required]
         public string? Email { get; set; } = string.Empty;
         public string? Address { get; set; } = string.Empty;
+
+        public static implicit operator ObservableCollection<object>(Contact v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
