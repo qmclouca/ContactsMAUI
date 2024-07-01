@@ -108,8 +108,7 @@ namespace Contacts.ViewModels
 
         [RelayCommand]
         public async Task BackToContacts()
-        {
-            // Implement navigation logic to go back to the contacts list
+        {            
             await Shell.Current.GoToAsync("..");
         }
     }
