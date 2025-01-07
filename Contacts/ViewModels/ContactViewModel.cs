@@ -54,7 +54,7 @@ namespace Contacts.ViewModels
         {
             if (await ValidateContact())
             {
-                await _editContactUseCase.ExecuteAsync(Contact.Id);
+                await _editContactUseCase.ExecuteAsync(Contact);
                 await Shell.Current.GoToAsync($"{nameof(Contacts_Mvvm_Page)}");
             }
         }

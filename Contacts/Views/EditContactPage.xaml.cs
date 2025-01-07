@@ -48,7 +48,7 @@ public partial class EditContactPage : ContentPage
         contact.Email = contactCtrl.Email;
         contact.Address = contactCtrl.Address;
 
-        await _editContactUseCase.ExecuteAsync(contact.Id);        
+        await _editContactUseCase.ExecuteAsync(contact);        
         await Shell.Current.GoToAsync($"//{nameof(ContactsPage)}");
     }
 

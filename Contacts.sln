@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{C64D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts.Plugins.DataStore.InMemory", "Contacts.Plugins.DataStore.InMemory\Contacts.Plugins.DataStore.InMemory.csproj", "{8C73B942-4ADD-40BB-B563-5985C10785BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Plugins.DataStore.SqlLite", "Plugins\Contacts.Plugins.DataStore.SqlLite\Contacts.Plugins.DataStore.SqlLite.csproj", "{65C518A4-7689-4D0C-A109-6CE6AF4212D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts.Plugins.DataStore.SqlLite", "Plugins\Contacts.Plugins.DataStore.SqlLite\Contacts.Plugins.DataStore.SqlLite.csproj", "{65C518A4-7689-4D0C-A109-6CE6AF4212D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

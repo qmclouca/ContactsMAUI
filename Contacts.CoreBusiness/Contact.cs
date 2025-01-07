@@ -13,6 +13,14 @@ namespace Contacts.CoreBusiness
             Email = email;
             Address = address;
         }
+        public Contact(Guid id, string name, string? phone, string? email, string address)
+        {
+            Id = id;
+            Name = name;
+            Phone = phone;
+            Email = email;
+            Address = address;
+        }
         public Contact()
         {
             

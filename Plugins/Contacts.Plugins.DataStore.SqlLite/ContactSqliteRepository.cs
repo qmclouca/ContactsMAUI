@@ -81,8 +81,10 @@ namespace Contacts.Plugins.DataStore.SqlLite
         }
 
         public async Task UpdateContactAsync(Contact contact)
-        {            
-            await _database.UpdateAsync(contact);
+        {
+            var rowsAffected = await _database.UpdateAsync(contact);
+            if (rowsAffected <= 0)
+                throw new InvalidOperationException("A atualização não foi realizada. Nenhuma linha do banco de dados foi afetada.");            
         }
     }
 }

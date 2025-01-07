@@ -13,10 +13,14 @@ namespace Contacts.UseCases
             _contactRepository = contactRepository;
         }
 
-        public async Task ExecuteAsync(Guid contactId)
+        public async Task ExecuteAsync(Contact contact)
         {
-            Contact contact = await _contactRepository.GetContactByIdAsync(contactId);
-            await _contactRepository.UpdateContactAsync(contact);
+            Contact contactToUpdate = await _contactRepository.GetContactByIdAsync(contact.Id);
+            if (contactToUpdate == null)
+                return;
+            Contact newContact = new Contact(contact.Id, contact.Name, contact.Phone, contact.Email, contact.Address);
+
+            await _contactRepository.UpdateContactAsync(newContact);
         }
     }
 }
